@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BC4732642C5D0DBD0053DEFE /* GreekKinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */; };
+		BC4732662C5D0DBD0053DEFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732652C5D0DBD0053DEFE /* ContentView.swift */; };
+		BC4732682C5D0DBE0053DEFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC4732672C5D0DBE0053DEFE /* Assets.xcassets */; };
+		BC47326B2C5D0DBE0053DEFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC47326A2C5D0DBE0053DEFE /* Preview Assets.xcassets */; };
+		BC4732752C5D0DBE0053DEFE /* greek_kinoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732742C5D0DBE0053DEFE /* greek_kinoTests.swift */; };
+		BC47327F2C5D0DBE0053DEFE /* greek_kinoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC47327E2C5D0DBE0053DEFE /* greek_kinoUITests.swift */; };
+		BC4732812C5D0DBE0053DEFE /* greek_kinoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732802C5D0DBE0053DEFE /* greek_kinoUITestsLaunchTests.swift */; };
+		BC47328E2C5D100D0053DEFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC47328D2C5D100D0053DEFE /* NetworkService.swift */; };
+		BC4732902C5D132D0053DEFE /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC47328F2C5D132D0053DEFE /* GameManager.swift */; };
+		BC4732922C5D14100053DEFE /* FutureGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732912C5D14100053DEFE /* FutureGameModel.swift */; };
+		BC4732942C5D174E0053DEFE /* FutureGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732932C5D174E0053DEFE /* FutureGamesViewModel.swift */; };
+		BC4732962C5D1C760053DEFE /* FutureGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732952C5D1C760053DEFE /* FutureGamesView.swift */; };
+		BC4732982C5D1FCC0053DEFE /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732972C5D1FCC0053DEFE /* LoadingView.swift */; };
+		BC47329A2C5D7E240053DEFE /* CountdownViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732992C5D7E240053DEFE /* CountdownViewModel.swift */; };
+		BC47329D2C5D7F7E0053DEFE /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC47329C2C5D7F7E0053DEFE /* CountdownView.swift */; };
+		BC47329F2C5D85E70053DEFE /* ColorAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC47329E2C5D85E70053DEFE /* ColorAsset.xcassets */; };
+		BC4732A22C5D89C20053DEFE /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A12C5D89C20053DEFE /* GameDetailView.swift */; };
+		BC4732A42C5D9D6F0053DEFE /* UserGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC4732712C5D0DBE0053DEFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC4732582C5D0DBD0053DEFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC47325F2C5D0DBD0053DEFE;
+			remoteInfo = greek_kino;
+		};
+		BC47327B2C5D0DBE0053DEFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC4732582C5D0DBD0053DEFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BC47325F2C5D0DBD0053DEFE;
+			remoteInfo = greek_kino;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BC4732602C5D0DBD0053DEFE /* greek_kino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = greek_kino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreekKinoApp.swift; sourceTree = "<group>"; };
+		BC4732652C5D0DBD0053DEFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC4732672C5D0DBE0053DEFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC47326A2C5D0DBE0053DEFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BC4732702C5D0DBE0053DEFE /* greek_kinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greek_kinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC4732742C5D0DBE0053DEFE /* greek_kinoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greek_kinoTests.swift; sourceTree = "<group>"; };
+		BC47327A2C5D0DBE0053DEFE /* greek_kinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greek_kinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC47327E2C5D0DBE0053DEFE /* greek_kinoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greek_kinoUITests.swift; sourceTree = "<group>"; };
+		BC4732802C5D0DBE0053DEFE /* greek_kinoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = greek_kinoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC47328D2C5D100D0053DEFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BC47328F2C5D132D0053DEFE /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		BC4732912C5D14100053DEFE /* FutureGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureGameModel.swift; sourceTree = "<group>"; };
+		BC4732932C5D174E0053DEFE /* FutureGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureGamesViewModel.swift; sourceTree = "<group>"; };
+		BC4732952C5D1C760053DEFE /* FutureGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureGamesView.swift; sourceTree = "<group>"; };
+		BC4732972C5D1FCC0053DEFE /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BC4732992C5D7E240053DEFE /* CountdownViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewModel.swift; sourceTree = "<group>"; };
+		BC47329C2C5D7F7E0053DEFE /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
+		BC47329E2C5D85E70053DEFE /* ColorAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAsset.xcassets; sourceTree = "<group>"; };
+		BC4732A12C5D89C20053DEFE /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BC47325D2C5D0DBD0053DEFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC47326D2C5D0DBE0053DEFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC4732772C5D0DBE0053DEFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BC4732572C5D0DBD0053DEFE = {
+			isa = PBXGroup;
+			children = (
+				BC4732622C5D0DBD0053DEFE /* greek_kino */,
+				BC4732732C5D0DBE0053DEFE /* greek_kinoTests */,
+				BC47327D2C5D0DBE0053DEFE /* greek_kinoUITests */,
+				BC4732612C5D0DBD0053DEFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BC4732612C5D0DBD0053DEFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732602C5D0DBD0053DEFE /* greek_kino.app */,
+				BC4732702C5D0DBE0053DEFE /* greek_kinoTests.xctest */,
+				BC47327A2C5D0DBE0053DEFE /* greek_kinoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BC4732622C5D0DBD0053DEFE /* greek_kino */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732A02C5D89AB0053DEFE /* GameDetails */,
+				BC47329B2C5D7E6C0053DEFE /* UpcommingGames */,
+				BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */,
+				BC4732652C5D0DBD0053DEFE /* ContentView.swift */,
+				BC47328D2C5D100D0053DEFE /* NetworkService.swift */,
+				BC47328F2C5D132D0053DEFE /* GameManager.swift */,
+				BC4732912C5D14100053DEFE /* FutureGameModel.swift */,
+				BC4732672C5D0DBE0053DEFE /* Assets.xcassets */,
+				BC4732692C5D0DBE0053DEFE /* Preview Content */,
+				BC4732972C5D1FCC0053DEFE /* LoadingView.swift */,
+				BC47329E2C5D85E70053DEFE /* ColorAsset.xcassets */,
+				BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */,
+			);
+			path = greek_kino;
+			sourceTree = "<group>";
+		};
+		BC4732692C5D0DBE0053DEFE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BC47326A2C5D0DBE0053DEFE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC4732732C5D0DBE0053DEFE /* greek_kinoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732742C5D0DBE0053DEFE /* greek_kinoTests.swift */,
+			);
+			path = greek_kinoTests;
+			sourceTree = "<group>";
+		};
+		BC47327D2C5D0DBE0053DEFE /* greek_kinoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BC47327E2C5D0DBE0053DEFE /* greek_kinoUITests.swift */,
+				BC4732802C5D0DBE0053DEFE /* greek_kinoUITestsLaunchTests.swift */,
+			);
+			path = greek_kinoUITests;
+			sourceTree = "<group>";
+		};
+		BC47329B2C5D7E6C0053DEFE /* UpcommingGames */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732932C5D174E0053DEFE /* FutureGamesViewModel.swift */,
+				BC4732952C5D1C760053DEFE /* FutureGamesView.swift */,
+				BC4732992C5D7E240053DEFE /* CountdownViewModel.swift */,
+				BC47329C2C5D7F7E0053DEFE /* CountdownView.swift */,
+			);
+			path = UpcommingGames;
+			sourceTree = "<group>";
+		};
+		BC4732A02C5D89AB0053DEFE /* GameDetails */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732A12C5D89C20053DEFE /* GameDetailView.swift */,
+			);
+			path = GameDetails;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BC47325F2C5D0DBD0053DEFE /* greek_kino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC4732842C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kino" */;
+			buildPhases = (
+				BC47325C2C5D0DBD0053DEFE /* Sources */,
+				BC47325D2C5D0DBD0053DEFE /* Frameworks */,
+				BC47325E2C5D0DBD0053DEFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = greek_kino;
+			productName = greek_kino;
+			productReference = BC4732602C5D0DBD0053DEFE /* greek_kino.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BC47326F2C5D0DBE0053DEFE /* greek_kinoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC4732872C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kinoTests" */;
+			buildPhases = (
+				BC47326C2C5D0DBE0053DEFE /* Sources */,
+				BC47326D2C5D0DBE0053DEFE /* Frameworks */,
+				BC47326E2C5D0DBE0053DEFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC4732722C5D0DBE0053DEFE /* PBXTargetDependency */,
+			);
+			name = greek_kinoTests;
+			productName = greek_kinoTests;
+			productReference = BC4732702C5D0DBE0053DEFE /* greek_kinoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BC4732792C5D0DBE0053DEFE /* greek_kinoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BC47328A2C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kinoUITests" */;
+			buildPhases = (
+				BC4732762C5D0DBE0053DEFE /* Sources */,
+				BC4732772C5D0DBE0053DEFE /* Frameworks */,
+				BC4732782C5D0DBE0053DEFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BC47327C2C5D0DBE0053DEFE /* PBXTargetDependency */,
+			);
+			name = greek_kinoUITests;
+			productName = greek_kinoUITests;
+			productReference = BC47327A2C5D0DBE0053DEFE /* greek_kinoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC4732582C5D0DBD0053DEFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					BC47325F2C5D0DBD0053DEFE = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					BC47326F2C5D0DBE0053DEFE = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = BC47325F2C5D0DBD0053DEFE;
+					};
+					BC4732792C5D0DBE0053DEFE = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = BC47325F2C5D0DBD0053DEFE;
+					};
+				};
+			};
+			buildConfigurationList = BC47325B2C5D0DBD0053DEFE /* Build configuration list for PBXProject "greek_kino" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BC4732572C5D0DBD0053DEFE;
+			productRefGroup = BC4732612C5D0DBD0053DEFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC47325F2C5D0DBD0053DEFE /* greek_kino */,
+				BC47326F2C5D0DBE0053DEFE /* greek_kinoTests */,
+				BC4732792C5D0DBE0053DEFE /* greek_kinoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC47325E2C5D0DBD0053DEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC47329F2C5D85E70053DEFE /* ColorAsset.xcassets in Resources */,
+				BC47326B2C5D0DBE0053DEFE /* Preview Assets.xcassets in Resources */,
+				BC4732682C5D0DBE0053DEFE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC47326E2C5D0DBE0053DEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC4732782C5D0DBE0053DEFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BC47325C2C5D0DBD0053DEFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4732A42C5D9D6F0053DEFE /* UserGameModel.swift in Sources */,
+				BC4732662C5D0DBD0053DEFE /* ContentView.swift in Sources */,
+				BC4732902C5D132D0053DEFE /* GameManager.swift in Sources */,
+				BC4732962C5D1C760053DEFE /* FutureGamesView.swift in Sources */,
+				BC4732922C5D14100053DEFE /* FutureGameModel.swift in Sources */,
+				BC47329A2C5D7E240053DEFE /* CountdownViewModel.swift in Sources */,
+				BC47328E2C5D100D0053DEFE /* NetworkService.swift in Sources */,
+				BC47329D2C5D7F7E0053DEFE /* CountdownView.swift in Sources */,
+				BC4732982C5D1FCC0053DEFE /* LoadingView.swift in Sources */,
+				BC4732642C5D0DBD0053DEFE /* GreekKinoApp.swift in Sources */,
+				BC4732A22C5D89C20053DEFE /* GameDetailView.swift in Sources */,
+				BC4732942C5D174E0053DEFE /* FutureGamesViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC47326C2C5D0DBE0053DEFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4732752C5D0DBE0053DEFE /* greek_kinoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC4732762C5D0DBE0053DEFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BC4732812C5D0DBE0053DEFE /* greek_kinoUITestsLaunchTests.swift in Sources */,
+				BC47327F2C5D0DBE0053DEFE /* greek_kinoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BC4732722C5D0DBE0053DEFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC47325F2C5D0DBD0053DEFE /* greek_kino */;
+			targetProxy = BC4732712C5D0DBE0053DEFE /* PBXContainerItemProxy */;
+		};
+		BC47327C2C5D0DBE0053DEFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC47325F2C5D0DBD0053DEFE /* greek_kino */;
+			targetProxy = BC47327B2C5D0DBE0053DEFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BC4732822C5D0DBE0053DEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BC4732832C5D0DBE0053DEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BC4732852C5D0DBE0053DEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"greek_kino/Preview Content\"";
+				DEVELOPMENT_TEAM = S94WS5979X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kino";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BC4732862C5D0DBE0053DEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"greek_kino/Preview Content\"";
+				DEVELOPMENT_TEAM = S94WS5979X;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kino";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC4732882C5D0DBE0053DEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S94WS5979X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kinoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greek_kino.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/greek_kino";
+			};
+			name = Debug;
+		};
+		BC4732892C5D0DBE0053DEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S94WS5979X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kinoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/greek_kino.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/greek_kino";
+			};
+			name = Release;
+		};
+		BC47328B2C5D0DBE0053DEFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S94WS5979X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kinoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = greek_kino;
+			};
+			name = Debug;
+		};
+		BC47328C2C5D0DBE0053DEFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S94WS5979X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rosicnikola.greek-kinoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = greek_kino;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BC47325B2C5D0DBD0053DEFE /* Build configuration list for PBXProject "greek_kino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC4732822C5D0DBE0053DEFE /* Debug */,
+				BC4732832C5D0DBE0053DEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC4732842C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC4732852C5D0DBE0053DEFE /* Debug */,
+				BC4732862C5D0DBE0053DEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC4732872C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kinoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC4732882C5D0DBE0053DEFE /* Debug */,
+				BC4732892C5D0DBE0053DEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BC47328A2C5D0DBE0053DEFE /* Build configuration list for PBXNativeTarget "greek_kinoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC47328B2C5D0DBE0053DEFE /* Debug */,
+				BC47328C2C5D0DBE0053DEFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BC4732582C5D0DBD0053DEFE /* Project object */;
+}
