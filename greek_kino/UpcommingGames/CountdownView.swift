@@ -16,15 +16,15 @@ struct CountdownView: View {
         Text(viewModel.timeRemaining)
             .font(.headline)
             .padding(.horizontal, 2)
-            .foregroundColor(viewModel.isBelowOneMinute ? .red : .primary)
+            .foregroundColor(viewModel.isBelowTwoMinute ? .red : .primary)
             .scaleEffect(pulsate ? 1.2 : 1.0)
-            .animation(viewModel.isBelowOneMinute ? .easeInOut(duration: 0.5).repeatForever(autoreverses: true) : .default, value: pulsate)
+            .animation(viewModel.isBelowTwoMinute ? .easeInOut(duration: 0.5).repeatForever(autoreverses: true) : .default, value: pulsate)
             .onAppear {
-                if viewModel.isBelowOneMinute {
+                if viewModel.isBelowTwoMinute {
                     pulsate = true
                 }
             }
-            .onReceive(viewModel.$isBelowOneMinute) { isBelowOneMinute in
+            .onReceive(viewModel.$isBelowTwoMinute) { isBelowOneMinute in
                 if isBelowOneMinute {
                     withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {
                         pulsate = true
@@ -36,6 +36,3 @@ struct CountdownView: View {
     }
 }
 
-#Preview {
-    CountdownView(viewModel: CountdownViewModel(drawTime: 131452354235))
-}

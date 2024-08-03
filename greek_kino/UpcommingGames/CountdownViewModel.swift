@@ -10,7 +10,7 @@ import Combine
 
 final class CountdownViewModel: ObservableObject {
     @Published var timeRemaining: String = ""
-    @Published var isBelowOneMinute: Bool = false
+    @Published var isBelowTwoMinute: Bool = false
     @Published var reachedZero: Bool = false
     private var timer: AnyCancellable?
     private var endTime: Date
@@ -18,6 +18,7 @@ final class CountdownViewModel: ObservableObject {
     init(drawTime: Int) {
         self.endTime = Date(timeIntervalSince1970: TimeInterval(drawTime) / 1000)
         self.startTimer()
+        self.updateTimeRemaining()
     }
     
     func startTimer() {
@@ -34,13 +35,13 @@ final class CountdownViewModel: ObservableObject {
         if remaining <= 0 {
             timer?.cancel()
             timeRemaining = "00:00"
-            isBelowOneMinute = false
+            isBelowTwoMinute = false
             reachedZero = true
         } else {
             let minutes = Int(remaining) / 60
             let seconds = Int(remaining) % 60
             timeRemaining = String(format: "%02d:%02d", minutes, seconds)
-            isBelowOneMinute = remaining < 60
+            isBelowTwoMinute = remaining < 120
         }
     }
     

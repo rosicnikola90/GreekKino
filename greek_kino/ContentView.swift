@@ -9,25 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var isLoadingWebView = false
     
     var body: some View {
         TabView {
-            FutureGamesView()
+            UpcomingGamesView()
                 .tabItem {
                     Image(systemName: "1.square.fill")
-                    Text("First")
+                    Text("Upcoming")
                 }
-            
-            Text("dasdas222")
+            LiveView()
                 .tabItem {
                     Image(systemName: "2.square.fill")
-                    Text("Second")
+                    Text("Live")
                 }
             
             Text("dasdas333")
                 .tabItem {
                     Image(systemName: "3.square.fill")
-                    Text("Third")
+                    Text("My Games")
+                }
+            Text("dasdas4444")
+                .tabItem {
+                    Image(systemName: "4.square.fill")
+                    Text("History")
                 }
         }
     }

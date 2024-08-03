@@ -1,5 +1,5 @@
 //
-//  FutureGamesViewModel.swift
+//  UpcomingGamesViewModel.swift
 //  greek_kino
 //
 //  Created by Nikola Rosic on 2.8.24..
@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class FutureGamesViewModel: ObservableObject {
+final class UpcomingGamesViewModel: ObservableObject {
     
-    @Published var futureGames: [FutureGameModel] = []
-    @Published var futureGamesOnChange: [FutureGameModel] = []
+    @Published var futureGames: [UpcomingGameModel] = []
+    @Published var futureGamesOnChange: [UpcomingGameModel] = []
     
     private let gameManager = GameManager.shared
     

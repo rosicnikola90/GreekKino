@@ -1,46 +1,53 @@
-//
-//  GameDetailView.swift
-//  greek_kino
-//
-//  Created by Nikola Rosic on 3.8.24..
-//
-
 import SwiftUI
 
 struct GameDetailView: View {
 
     @StateObject var viewModel: GameDetailsViewModel
-    @Binding var isPresented: FutureGameModel?
-    let columns = Array(repeating: GridItem(.flexible()), count: 8)
+    @Binding var isPresented: UpcomingGameModel?
+    let columns = Array(repeating: GridItem(.flexible()), count: 10)
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             HStack {
                 Button(action: {
-                    isPresented = nil
+                    viewModel.createGamePressed()
                 }) {
                     Image(systemName: "checkmark.circle")
                         .font(.largeTitle)
-                        .foregroundColor(.gray)
+                        .foregroundColor(viewModel.selectedNumbers.isEmpty ? .gray : .green)
                         .padding()
                 }
+                .disabled(viewModel.selectedNumbers.isEmpty)
                 Spacer()
                 CountdownView(viewModel: viewModel.countdownViewModel)
                 Spacer()
                 Button(action: {
                     isPresented = nil
                 }) {
-                    Text("Close")
+                    Image(systemName: "xmark.circle")
+                        .font(.largeTitle)
+                        .foregroundColor(.primary)
                         .padding()
                 }
+                
             }
             Text("Game No.: \(viewModel.game.drawId)")
                 .font(.headline)
+            QuoteHorizontalView(viewModel: viewModel)
+                .padding(.vertical, 12)
             Spacer()
-            LazyVGrid(columns: columns, spacing: 4) {
+            HStack {
+                CustomButtonView(text: "Random") {
+                    
+                }
+                Spacer()
+                CustomButtonView(text: "Clear all") {
+                    viewModel.selectedNumbers.removeAll()
+                }
+            }
+            LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(1...80, id: \.self) { number in
                     Button(action: {
-                        print("Button \(number) tapped")
                         withAnimation(.easeInOut) {
                             viewModel.numberPressed(number: number)
                         }
@@ -50,7 +57,7 @@ struct GameDetailView: View {
                             .aspectRatio(1, contentMode: .fit)
                             .background(viewModel.selectedNumbers.contains(number) ? Color.green : Color.blue)
                             .foregroundColor(.white)
-                            .cornerRadius(5)
+                            .cornerRadius(2)
                     }
                 }
             }
@@ -76,14 +83,80 @@ struct GameDetailView: View {
 }
 
 
+struct QuoteHorizontalView: View {
+    
+    @ObservedObject var viewModel: GameDetailsViewModel
+    
+    var body: some View {
+        ScrollViewReader { proxy in
+            HStack {
+                VStack {
+                    Text("Count:")
+                    Divider()
+                    Text("Quote:")
+                }
+                .frame(width: 80)
+                Divider()
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(1...15, id: \.self) { count in
+                            VStack {
+                                Text("\(count)")
+                                    .font(.headline)
+                                    .padding(.horizontal, 2)
+                                    .foregroundColor(viewModel.selectedNumbers.count == count ? .red : .primary)
+                                Divider()
+                                Text("\(String(format: "%.2f", Double(count) * viewModel.startingQuote * pow(1.5, Double(count))))")
+                                    .font(.headline)
+                                    .padding(.horizontal, 2)
+                                    .foregroundColor(viewModel.selectedNumbers.count == count ? .red : .primary)
+                            }
+                            .frame(width: 80)
+                            .id(count)  // Assign an id to each VStack
+                        }
+                    }
+                }
+                .onChange(of: viewModel.selectedNumbers.count) { count in
+                    withAnimation {
+                        proxy.scrollTo(count, anchor: .leading)
+                    }
+                }
+            }
+        }
+        .padding()
+        .frame(height: 50)
+    }
+}
+
+struct CustomButtonView: View {
+    let text: String
+    let backgroundColor = Color("MozzartYellow")
+    let cornerRadius = 8.0
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(text)
+                .foregroundColor(Color.primary)
+                .padding(8)
+                .frame(maxWidth: .infinity)
+                .background(backgroundColor)
+                .cornerRadius(cornerRadius)
+        }
+        .padding([.leading, .trailing], 8)
+    }
+}
+
+
 final class GameDetailsViewModel: ObservableObject {
     
-    let game: FutureGameModel
+    let game: UpcomingGameModel
     @Published var selectedNumbers: [Int] = []
     var countdownViewModel: CountdownViewModel
     @Published var maxReached = false
+    let startingQuote = 3.75
     
-    init(game: FutureGameModel) {
+    init(game: UpcomingGameModel) {
         self.game = game
         self.countdownViewModel = CountdownViewModel(drawTime: game.drawTime)
     }
@@ -101,6 +174,6 @@ final class GameDetailsViewModel: ObservableObject {
     }
     
     func createGamePressed() {
-        
+        GameManager.shared.addGame(forUpcomingGame: game, forNumbers: selectedNumbers)
     }
 }

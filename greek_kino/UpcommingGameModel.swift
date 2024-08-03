@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FutureGameModel: Codable, Equatable, Identifiable {
+struct UpcomingGameModel: Codable, Equatable, Identifiable {
     let gameId: Int
     let drawId: Int
     let drawTime: Int

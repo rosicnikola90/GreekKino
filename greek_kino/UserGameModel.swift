@@ -8,6 +8,6 @@
 import Foundation
 
 struct UserGameModel {
-    let game: FutureGameModel
+    let game: UpcomingGameModel
     let numbers: [Int]
 }

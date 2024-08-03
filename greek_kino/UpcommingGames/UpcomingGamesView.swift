@@ -1,5 +1,5 @@
 //
-//  FutureGamesView.swift
+//  UpcomingGamesView.swift
 //  greek_kino
 //
 //  Created by Nikola Rosic on 2.8.24..
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct FutureGamesView: View {
-    @ObservedObject var viewModel = FutureGamesViewModel()
-    @State private var selectedGame: FutureGameModel? = nil
+struct UpcomingGamesView: View {
+    @ObservedObject var viewModel = UpcomingGamesViewModel()
+    @State private var selectedGame: UpcomingGameModel? = nil
     
     var body: some View {
         NavigationStack {
@@ -54,13 +54,13 @@ struct FutureGamesView: View {
 
 
 #Preview {
-    FutureGamesView()
+    UpcomingGamesView()
 }
 
 
 
 struct FutureGameRowView: View {
-    let game: FutureGameModel
+    let game: UpcomingGameModel
     
     var body: some View {
         HStack {
