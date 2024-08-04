@@ -6,8 +6,17 @@
 //
 
 import Foundation
+import SwiftData
 
-struct UserGameModel {
+@Model
+final class UserGameModel {
+    let id: String
     let game: UpcomingGameModel
     let numbers: [Int]
+    
+    init(game: UpcomingGameModel, numbers: [Int]) {
+        self.id = UUID().uuidString
+        self.game = game
+        self.numbers = numbers
+    }
 }

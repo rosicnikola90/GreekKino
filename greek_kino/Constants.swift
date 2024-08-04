@@ -14,5 +14,23 @@ struct Constants {
     
     static let shared = Constants()
     
-    let livePreviewUrl = "https://oldsite.mozzartbet.com/sr/lotto-animation/26/#/"
+    
+}
+
+
+enum URLs {
+    case livePreviewUrl
+    case futureGamesUrl
+    case historyOfGames(String, String)
+    
+    var urlString: String {
+        switch self {
+        case .livePreviewUrl:
+            "https://oldsite.mozzartbet.com/sr/lotto-animation/26/#/"
+        case .futureGamesUrl:
+            "https://api.opap.gr/draws/v3.0/1100/upcoming/20"
+        case .historyOfGames(let dateFrom, let dateTo):
+            "https://api.opap.gr/draws/v3.0/1100/draw-date/\(dateFrom)/\(dateTo)"
+        }
+    }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @StateObject var gameManager = GameManager.shared
     @State var isLoadingWebView = false
     
     var body: some View {
@@ -23,13 +23,13 @@ struct ContentView: View {
                     Image(systemName: "2.square.fill")
                     Text("Live")
                 }
-            
-            Text("dasdas333")
+            MyGamesView()
+                .environmentObject(gameManager)
                 .tabItem {
                     Image(systemName: "3.square.fill")
                     Text("My Games")
                 }
-            Text("dasdas4444")
+            HistoryView()
                 .tabItem {
                     Image(systemName: "4.square.fill")
                     Text("History")

@@ -5,12 +5,13 @@ struct GameDetailView: View {
     @StateObject var viewModel: GameDetailsViewModel
     @Binding var isPresented: UpcomingGameModel?
     let columns = Array(repeating: GridItem(.flexible()), count: 10)
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         VStack(spacing: 8) {
             HStack {
                 Button(action: {
-                    viewModel.createGamePressed()
+                    addItem()
                 }) {
                     Image(systemName: "checkmark.circle")
                         .font(.largeTitle)
@@ -47,18 +48,23 @@ struct GameDetailView: View {
             }
             LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(1...80, id: \.self) { number in
-                    Button(action: {
+                    CustomNumberView(number: number, backgroundColor: Color("ContentBackground"), borderColor: viewModel.selectedNumbers.contains(number) ? Color.green : nil) {
                         withAnimation(.easeInOut) {
                             viewModel.numberPressed(number: number)
                         }
-                    }) {
-                        Text("\(number)")
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .aspectRatio(1, contentMode: .fit)
-                            .background(viewModel.selectedNumbers.contains(number) ? Color.green : Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(2)
                     }
+                    //                    Button(action: {
+                    //                        withAnimation(.easeInOut) {
+                    //                            viewModel.numberPressed(number: number)
+                    //                        }
+                    //                    }) {
+                    //                        Text("\(number)")
+                    //                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    //                            .aspectRatio(1, contentMode: .fit)
+                    //                            .background(viewModel.selectedNumbers.contains(number) ? Color.green : Color.blue)
+                    //                            .foregroundColor(.white)
+                    //                            .cornerRadius(2)
+                    //                    }
                 }
             }
             .padding()
@@ -79,6 +85,13 @@ struct GameDetailView: View {
                 })
             )
         })
+    }
+    
+    private func addItem() {
+        withAnimation {
+            let newGame = UserGameModel(game: viewModel.game, numbers: viewModel.selectedNumbers)
+            modelContext.insert(newGame)
+        }
     }
 }
 
@@ -112,7 +125,7 @@ struct QuoteHorizontalView: View {
                                     .foregroundColor(viewModel.selectedNumbers.count == count ? .red : .primary)
                             }
                             .frame(width: 80)
-                            .id(count)  // Assign an id to each VStack
+                            .id(count)
                         }
                     }
                 }
@@ -172,8 +185,28 @@ final class GameDetailsViewModel: ObservableObject {
             }
         }
     }
-    
-    func createGamePressed() {
-        GameManager.shared.addGame(forUpcomingGame: game, forNumbers: selectedNumbers)
+}
+
+
+
+struct CustomNumberView: View {
+    var number: Int
+    var backgroundColor: Color
+    var borderColor: Color?
+    var action: (() -> Void)?
+
+    var body: some View {
+        Button(action: action ?? {}) {
+            Text("\(number)")
+                .font(.headline)
+                .foregroundColor(.primary)
+                .frame(maxWidth: .infinity)
+                .background(backgroundColor)
+                .cornerRadius(4)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(borderColor ?? .clear, lineWidth:  borderColor != nil ? 3 : 0)
+                )
+        }
     }
 }
