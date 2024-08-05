@@ -79,7 +79,6 @@ struct CountdownView: View {
 }
 
 
-
 final class CountdownViewModel: ObservableObject {
     @Published var timeRemaining: String = ""
     @Published var isBelowTwoMinute: Bool = false
@@ -100,10 +99,8 @@ final class CountdownViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
-    private func updateTimeRemaining() {
-        let now = Date()
-        let remaining = endTime.timeIntervalSince(now)
+    func updateTimeRemaining(currentDate: Date = Date()) {
+        let remaining = endTime.timeIntervalSince(currentDate)
         
         if remaining <= 0 {
             timeRemaining = "00:00"
@@ -123,3 +120,85 @@ final class CountdownViewModel: ObservableObject {
     }
 }
 
+
+struct UserGameCellView: View {
+    let game: UserGameModel?
+    let columns = Array(repeating: GridItem(.flexible()), count: 5)
+    let historyGame: HistoryGameModel?
+    let status: GameStatus
+    let action: (()->())?
+    
+    init(game: UserGameModel, action: (()->())?) {
+        self.game = game
+        self.historyGame = nil
+        self.status = FormatHelper.checkUnixTimeStatus((game.game.drawTime))
+        self.action = action
+    }
+    
+    init(historyGame: HistoryGameModel) {
+        self.game = nil
+        self.historyGame = historyGame
+        self.status = FormatHelper.checkUnixTimeStatus((historyGame.drawTime ?? 0))
+        self.action = nil
+    }
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Kolo: \(FormatHelper.formatNumber(game?.game.visualDraw ?? historyGame?.visualDraw ?? 0))")
+                    Spacer()
+                    Text("Vreme: \(FormatHelper.formatUnixTime((((game?.game.drawTime ?? historyGame?.drawTime) ?? 0))))")
+                }
+                Text("Status: \(FormatHelper.checkUnixTimeStatus((game?.game.drawTime ?? historyGame?.drawTime) ?? 0).title)")
+                
+                Text(game == nil ? "Izvuceni Brojevi:" : "Izabrani brojevi:")
+                LazyVGrid(columns: columns, spacing: 2) {
+                    ForEach(game?.numbers ?? historyGame?.winningNumbers?.list ?? [], id: \.self) { item in
+                        CustomNumberView(number: item, backgroundColor: .blue)
+                            .frame(width: 40, height: 40)
+                            .disabled(true)
+                    }
+                }
+            }
+            
+            if game != nil, status == .finished {
+                Image(systemName: "chevron.right")
+                    .font(.footnote)
+                    .foregroundColor(.primary)
+                    .frame(width: 10)
+            }
+        }
+        .padding(4)
+        .padding(.horizontal, 10)
+        .background(Color(.tertiarySystemBackground))
+        .cornerRadius(8)
+        .onTapGesture {
+            action?()
+        }
+    }
+}
+
+
+struct AlertModifier: ViewModifier {
+    @Binding var alertMessage: String?
+    
+    func body(content: Content) -> some View {
+        content
+            .alert(isPresented: .constant(alertMessage != nil)) {
+                Alert(
+                    title: Text("Error!"),
+                    message: Text(alertMessage ?? ""),
+                    dismissButton: .default(Text("OK")) {
+                        alertMessage = nil
+                    }
+                )
+            }
+    }
+}
+
+extension View {
+    func errorAlert(alertMessage: Binding<String?>) -> some View {
+        self.modifier(AlertModifier(alertMessage: alertMessage))
+    }
+}

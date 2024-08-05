@@ -244,5 +244,127 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB318858-35AE-4EB2-A1AF-250BFB2D5DD8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "greek_kino/Presentation/MyGames/MyGameDetails.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getGame()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB318858-35AE-4EB2-A1AF-250BFB2D5DD8 - 443bfe1ddec60f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;greek_kino.HistoryGameModel, Swift.Error&gt;) -&gt; () in greek_kino.MyGameDetailsViewModel.getGame() -&gt; ()"
+                  moduleName = "greek_kino"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikolarosic/Desktop/iOS_apps/greek_kino/greek_kino/Presentation/MyGames/MyGameDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81">
+               </Location>
+               <Location
+                  uuid = "EB318858-35AE-4EB2-A1AF-250BFB2D5DD8 - 443bfe1ddec60f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;greek_kino.HistoryGameModel, Swift.Error&gt;) -&gt; () in greek_kino.MyGameDetailsViewModel.getGame() -&gt; ()"
+                  moduleName = "greek_kino"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikolarosic/Desktop/iOS_apps/greek_kino/greek_kino/Presentation/MyGames/MyGameDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81">
+               </Location>
+               <Location
+                  uuid = "EB318858-35AE-4EB2-A1AF-250BFB2D5DD8 - 443bfe1ddec60f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;greek_kino.HistoryGameModel, Swift.Error&gt;) -&gt; () in greek_kino.MyGameDetailsViewModel.getGame() -&gt; ()"
+                  moduleName = "greek_kino"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikolarosic/Desktop/iOS_apps/greek_kino/greek_kino/Presentation/MyGames/MyGameDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E67F8D8-4FEF-49A4-A3AA-ACB7000F816C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "greek_kino/Presentation/MyGames/MyGameDetails.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getGame()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E67F8D8-4FEF-49A4-A3AA-ACB7000F816C - b9911fe072836534"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "greek_kino.MyGameDetailsViewModel.getGame() -&gt; ()"
+                  moduleName = "greek_kino"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikolarosic/Desktop/iOS_apps/greek_kino/greek_kino/Presentation/MyGames/MyGameDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78">
+               </Location>
+               <Location
+                  uuid = "0E67F8D8-4FEF-49A4-A3AA-ACB7000F816C - 443bfe1ddec6011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;greek_kino.HistoryGameModel, Swift.Error&gt;) -&gt; () in greek_kino.MyGameDetailsViewModel.getGame() -&gt; ()"
+                  moduleName = "greek_kino"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikolarosic/Desktop/iOS_apps/greek_kino/greek_kino/Presentation/MyGames/MyGameDetails.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5328AC8-11E7-4FF2-AD5C-8622E627989F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "greek_kino/Presentation/MyGames/MyGamesView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

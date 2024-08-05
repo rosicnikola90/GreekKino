@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct UpcomingGamesView: View {
+    
     @StateObject var viewModel = UpcomingGamesViewModel()
     @Query private var userGames: [UserGameModel]
     
@@ -42,7 +43,7 @@ struct UpcomingGamesView: View {
                             LazyVStack(spacing: 0) {
                                 ForEach(viewModel.futureGames) { game in
                                     if let countdownViewModel = viewModel.countdownViewModels[game.drawId] {
-                                        FutureGameRowView(game: game, countdownViewModel: countdownViewModel)
+                                        FutureGameRowView(game: game, countdownModel: countdownViewModel)
                                             .onTapGesture {
                                                 viewModel.selectedGame = game
                                             }
@@ -62,9 +63,7 @@ struct UpcomingGamesView: View {
             GameDetailView(viewModel: GameDetailsViewModel(game: game), isPresented: $viewModel.selectedGame)
         }
         .onAppear {
-            if viewModel.futureGames.isEmpty {
-                viewModel.getFutureGames()
-            }
+            viewModel.getFutureGames()
         }
         .onChange(of: viewModel.futureGamesOnChange) { _, newValue in
             withAnimation(.easeInOut) {
@@ -82,6 +81,11 @@ struct UpcomingGamesView: View {
 struct FutureGameRowView: View {
     let game: UpcomingGameModel
     let countdownViewModel: CountdownViewModel
+    
+    init(game: UpcomingGameModel, countdownModel: CountdownViewModel) {
+        self.game = game
+        self.countdownViewModel = countdownModel
+    }
     
     var body: some View {
         HStack {

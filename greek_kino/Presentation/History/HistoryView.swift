@@ -13,13 +13,11 @@ struct HistoryView: View {
     @EnvironmentObject var gameManager: GameManager
     
     var body: some View {
-        
         ZStack {
             if gameManager.loading {
                 LoadingView()
             } else {
-                
-                Color(.systemBackground)
+                Color(.contentBackground)
                     .ignoresSafeArea()
                 VStack {
                     HStack(alignment: .top) {
@@ -41,7 +39,7 @@ struct HistoryView: View {
                         }) {
                             Image(systemName: viewModel.searchedGame != nil ? "xmark.circle" : "magnifyingglass.circle")
                                 .font(.largeTitle)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.primary)
                                 .padding()
                         }
                         
@@ -53,11 +51,11 @@ struct HistoryView: View {
                         Spacer()
                     } else {
                         HStack {
-                            CustomButtonView(text: "Od datuma: \(viewModel.formatDateToString(viewModel.fromDate))") {
+                            CustomButtonView(text: "Od datuma: \(FormatHelper.formatDateToddMMyyyy(viewModel.fromDate))") {
                                 viewModel.showFromDatePicker = true
                             }
                             Spacer()
-                            CustomButtonView(text: "Do datuma: \(viewModel.formatDateToString(viewModel.toDate))") {
+                            CustomButtonView(text: "Do datuma: \(FormatHelper.formatDateToddMMyyyy(viewModel.toDate))") {
                                 viewModel.showToDatePicker = true
                             }
                         }
@@ -68,6 +66,7 @@ struct HistoryView: View {
                                         .padding(8)
                                 }
                             }
+                            .background(Color(.systemBackground))
                         }
                         .refreshable {
                             viewModel.getHistoryGames()
@@ -142,13 +141,14 @@ struct CustomDatePickerView: View {
                 )
                 .datePickerStyle(GraphicalDatePickerStyle())
                 .padding()
+                .foregroundColor(Color(.black))
                 
                 CustomButtonView(text: "Izaberi") {
                     showPicker = false
                 }
                 .padding()
             }
-            .background(Color.white)
+            .background(Color(.systemBackground))
             .cornerRadius(12)
             .shadow(radius: 10)
             .padding()
@@ -156,26 +156,3 @@ struct CustomDatePickerView: View {
     }
 }
 
-
-struct AlertModifier: ViewModifier {
-    @Binding var alertMessage: String?
-
-    func body(content: Content) -> some View {
-        content
-            .alert(isPresented: .constant(alertMessage != nil)) {
-                Alert(
-                    title: Text("Error!"),
-                    message: Text(alertMessage ?? ""),
-                    dismissButton: .default(Text("OK")) {
-                        alertMessage = nil
-                    }
-                )
-            }
-    }
-}
-
-extension View {
-    func errorAlert(alertMessage: Binding<String?>) -> some View {
-        self.modifier(AlertModifier(alertMessage: alertMessage))
-    }
-}

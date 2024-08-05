@@ -35,7 +35,7 @@ final class HistoryViewModel: ObservableObject {
 
     func getHistoryGames() {
         historyGamesOnChange = []
-        GameManager.shared.fetchHistoryGamesData(forDateFrom: formatDateToYYYYMMDD(fromDate), andDateTo: formatDateToYYYYMMDD(toDate)) { [weak self] result in
+        GameManager.shared.fetchHistoryGamesData(forDateFrom: FormatHelper.formatDateToYYYYMMDD(fromDate), andDateTo: FormatHelper.formatDateToYYYYMMDD(toDate)) { [weak self] result in
             switch result {
             case .success(let games):
                 self?.historyGamesOnChange = games.content ?? []
@@ -56,17 +56,5 @@ final class HistoryViewModel: ObservableObject {
                 self?.alertMessage = failure.localizedDescription
             }
         }
-    }
-
-    func formatDateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        return dateFormatter.string(from: date)
-    }
-
-    func formatDateToYYYYMMDD(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date)
     }
 }

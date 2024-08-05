@@ -29,20 +29,3 @@ extension UITabBarAppearance {
         return appearance
     }
 }
-
-struct FormatHelper {
-    
-    static func formatUnixTimeHHmm(_ unixTime: Int, dateFormat: String = "HH:mm") -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(unixTime) / 1000)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        return dateFormatter.string(from: date)
-    }
-    
-    static func formatNumber(_ number: Int) -> String {
-           let numberFormatter = NumberFormatter()
-           numberFormatter.usesGroupingSeparator = false
-           numberFormatter.numberStyle = .decimal
-           return numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
-       }
-}

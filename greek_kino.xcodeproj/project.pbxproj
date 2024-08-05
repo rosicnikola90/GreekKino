@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC4732642C5D0DBD0053DEFE /* GreekKinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */; };
-		BC4732662C5D0DBD0053DEFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732652C5D0DBD0053DEFE /* ContentView.swift */; };
+		BC4732662C5D0DBD0053DEFE /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732652C5D0DBD0053DEFE /* CoordinatorView.swift */; };
 		BC4732682C5D0DBE0053DEFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC4732672C5D0DBE0053DEFE /* Assets.xcassets */; };
 		BC47326B2C5D0DBE0053DEFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC47326A2C5D0DBE0053DEFE /* Preview Assets.xcassets */; };
 		BC4732752C5D0DBE0053DEFE /* greek_kinoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732742C5D0DBE0053DEFE /* greek_kinoTests.swift */; };
@@ -24,7 +24,7 @@
 		BC4732A22C5D89C20053DEFE /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A12C5D89C20053DEFE /* GameDetailView.swift */; };
 		BC4732A42C5D9D6F0053DEFE /* UserGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */; };
 		BC4732A72C5E66E10053DEFE /* LiveDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A62C5E66E10053DEFE /* LiveDrawView.swift */; };
-		BC4732A92C5E674A0053DEFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A82C5E674A0053DEFE /* Constants.swift */; };
+		BC4732A92C5E674A0053DEFE /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732A82C5E674A0053DEFE /* Shared.swift */; };
 		BC4732AB2C5E6E4C0053DEFE /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732AA2C5E6E4C0053DEFE /* LiveView.swift */; };
 		BC4732AD2C5E6E8A0053DEFE /* LiveViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732AC2C5E6E8A0053DEFE /* LiveViewCoordinator.swift */; };
 		BC4732B02C5E93C20053DEFE /* MyGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732AF2C5E93C20053DEFE /* MyGamesView.swift */; };
@@ -35,6 +35,8 @@
 		BC4732D82C6117BC0053DEFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732D72C6117BC0053DEFE /* Extensions.swift */; };
 		BC4732DB2C611D620053DEFE /* SharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732DA2C611D620053DEFE /* SharedViews.swift */; };
 		BC4732DD2C611DC40053DEFE /* GameDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732DC2C611DC40053DEFE /* GameDetailsViewModel.swift */; };
+		BC4732E12C61578A0053DEFE /* MyGameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732E02C61578A0053DEFE /* MyGameDetails.swift */; };
+		BC4732E42C617D9F0053DEFE /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4732E32C617D9F0053DEFE /* Launch.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +59,7 @@
 /* Begin PBXFileReference section */
 		BC4732602C5D0DBD0053DEFE /* greek_kino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = greek_kino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreekKinoApp.swift; sourceTree = "<group>"; };
-		BC4732652C5D0DBD0053DEFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC4732652C5D0DBD0053DEFE /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		BC4732672C5D0DBE0053DEFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC47326A2C5D0DBE0053DEFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC4732702C5D0DBE0053DEFE /* greek_kinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greek_kinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +77,7 @@
 		BC4732A12C5D89C20053DEFE /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameModel.swift; sourceTree = "<group>"; };
 		BC4732A62C5E66E10053DEFE /* LiveDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDrawView.swift; sourceTree = "<group>"; };
-		BC4732A82C5E674A0053DEFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC4732A82C5E674A0053DEFE /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		BC4732AA2C5E6E4C0053DEFE /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
 		BC4732AC2C5E6E8A0053DEFE /* LiveViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewCoordinator.swift; sourceTree = "<group>"; };
 		BC4732AF2C5E93C20053DEFE /* MyGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGamesView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		BC4732D72C6117BC0053DEFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BC4732DA2C611D620053DEFE /* SharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViews.swift; sourceTree = "<group>"; };
 		BC4732DC2C611DC40053DEFE /* GameDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewModel.swift; sourceTree = "<group>"; };
+		BC4732E02C61578A0053DEFE /* MyGameDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGameDetails.swift; sourceTree = "<group>"; };
+		BC4732E32C617D9F0053DEFE /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,20 +140,15 @@
 		BC4732622C5D0DBD0053DEFE /* greek_kino */ = {
 			isa = PBXGroup;
 			children = (
-				BC4732DE2C61268F0053DEFE /* Presentation */,
 				BC4732632C5D0DBD0053DEFE /* GreekKinoApp.swift */,
-				BC4732652C5D0DBD0053DEFE /* ContentView.swift */,
-				BC47328D2C5D100D0053DEFE /* NetworkService.swift */,
-				BC47328F2C5D132D0053DEFE /* GameManager.swift */,
-				BC4732912C5D14100053DEFE /* UpcommingGameModel.swift */,
-				BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */,
-				BC4732D02C5FBFC70053DEFE /* HistoryGameModel.swift */,
-				BC4732972C5D1FCC0053DEFE /* LoadingView.swift */,
-				BC4732672C5D0DBE0053DEFE /* Assets.xcassets */,
+				BC4732A82C5E674A0053DEFE /* Shared.swift */,
+				BC4732D72C6117BC0053DEFE /* Extensions.swift */,
+				BC4732E22C61741D0053DEFE /* ServicesAndManagers */,
+				BC4732DE2C61268F0053DEFE /* Presentation */,
+				BC4732DF2C6132010053DEFE /* Models */,
 				BC4732692C5D0DBE0053DEFE /* Preview Content */,
+				BC4732672C5D0DBE0053DEFE /* Assets.xcassets */,
 				BC47329E2C5D85E70053DEFE /* ColorAsset.xcassets */,
-				BC4732A82C5E674A0053DEFE /* Constants.swift */,
-				BC4732D42C60FFC00053DEFE /* TimerManager.swift */,
 			);
 			path = greek_kino;
 			sourceTree = "<group>";
@@ -211,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				BC4732AF2C5E93C20053DEFE /* MyGamesView.swift */,
+				BC4732E02C61578A0053DEFE /* MyGameDetails.swift */,
 			);
 			path = MyGames;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 		BC4732D62C6117AD0053DEFE /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				BC4732D72C6117BC0053DEFE /* Extensions.swift */,
+				BC4732972C5D1FCC0053DEFE /* LoadingView.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -243,6 +243,7 @@
 		BC4732DE2C61268F0053DEFE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				BC4732652C5D0DBD0053DEFE /* CoordinatorView.swift */,
 				BC4732D92C611D400053DEFE /* SharedViews */,
 				BC4732D62C6117AD0053DEFE /* Support */,
 				BC4732CD2C5FBB5C0053DEFE /* History */,
@@ -250,8 +251,29 @@
 				BC4732A52C5E66C70053DEFE /* LiveDrow */,
 				BC4732A02C5D89AB0053DEFE /* GameDetails */,
 				BC47329B2C5D7E6C0053DEFE /* UpcommingGames */,
+				BC4732E32C617D9F0053DEFE /* Launch.storyboard */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BC4732DF2C6132010053DEFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732912C5D14100053DEFE /* UpcommingGameModel.swift */,
+				BC4732A32C5D9D6F0053DEFE /* UserGameModel.swift */,
+				BC4732D02C5FBFC70053DEFE /* HistoryGameModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC4732E22C61741D0053DEFE /* ServicesAndManagers */ = {
+			isa = PBXGroup;
+			children = (
+				BC47328D2C5D100D0053DEFE /* NetworkService.swift */,
+				BC47328F2C5D132D0053DEFE /* GameManager.swift */,
+				BC4732D42C60FFC00053DEFE /* TimerManager.swift */,
+			);
+			path = ServicesAndManagers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +383,7 @@
 				BC47329F2C5D85E70053DEFE /* ColorAsset.xcassets in Resources */,
 				BC47326B2C5D0DBE0053DEFE /* Preview Assets.xcassets in Resources */,
 				BC4732682C5D0DBE0053DEFE /* Assets.xcassets in Resources */,
+				BC4732E42C617D9F0053DEFE /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,11 +410,12 @@
 			files = (
 				BC4732A42C5D9D6F0053DEFE /* UserGameModel.swift in Sources */,
 				BC4732DD2C611DC40053DEFE /* GameDetailsViewModel.swift in Sources */,
-				BC4732662C5D0DBD0053DEFE /* ContentView.swift in Sources */,
+				BC4732662C5D0DBD0053DEFE /* CoordinatorView.swift in Sources */,
 				BC4732902C5D132D0053DEFE /* GameManager.swift in Sources */,
 				BC4732962C5D1C760053DEFE /* UpcomingGamesView.swift in Sources */,
 				BC4732922C5D14100053DEFE /* UpcommingGameModel.swift in Sources */,
 				BC4732AB2C5E6E4C0053DEFE /* LiveView.swift in Sources */,
+				BC4732E12C61578A0053DEFE /* MyGameDetails.swift in Sources */,
 				BC4732CF2C5FBBB50053DEFE /* HistoryView.swift in Sources */,
 				BC47328E2C5D100D0053DEFE /* NetworkService.swift in Sources */,
 				BC4732D82C6117BC0053DEFE /* Extensions.swift in Sources */,
@@ -404,7 +428,7 @@
 				BC4732642C5D0DBD0053DEFE /* GreekKinoApp.swift in Sources */,
 				BC4732D32C5FCA900053DEFE /* HistoryViewModel.swift in Sources */,
 				BC4732AD2C5E6E8A0053DEFE /* LiveViewCoordinator.swift in Sources */,
-				BC4732A92C5E674A0053DEFE /* Constants.swift in Sources */,
+				BC4732A92C5E674A0053DEFE /* Shared.swift in Sources */,
 				BC4732A22C5D89C20053DEFE /* GameDetailView.swift in Sources */,
 				BC4732942C5D174E0053DEFE /* UpcomingGamesViewModel.swift in Sources */,
 			);
@@ -576,6 +600,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,6 +630,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

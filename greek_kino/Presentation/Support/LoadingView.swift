@@ -13,9 +13,9 @@ struct LoadingView: View {
             Spacer()
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
-                .scaleEffect(2) // Increase the size of the spinner
+                .scaleEffect(2)
                 .padding()
-            Text("Loading...")
+            Text("Učitavanje...")
                 .font(.headline)
                 .padding()
             Spacer()

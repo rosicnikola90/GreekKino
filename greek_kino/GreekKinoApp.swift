@@ -8,16 +8,6 @@
 import SwiftUI
 import SwiftData
 
-//@main
-//struct GreekKinoApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
-
-
 @main
 struct GreekKinoApp: App {
     var sharedModelContainer: ModelContainer = {
@@ -43,7 +33,9 @@ struct GreekKinoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView()
+                .preferredColorScheme(.dark)
+
         }
         .modelContainer(sharedModelContainer)
     }

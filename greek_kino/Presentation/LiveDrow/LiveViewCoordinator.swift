@@ -10,6 +10,7 @@ import WebKit
 import Combine
 
 final class LiveViewCoordinator: NSObject, ObservableObject {
+    
     @Published var isLoading: Bool = false
     private var webView: WKWebView
     private var loadingStateDebounce: AnyCancellable?

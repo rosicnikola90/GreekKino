@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CoordinatorView: View {
     let gameManager = GameManager.shared
     @State var isLoadingWebView = false
     
@@ -40,7 +40,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    CoordinatorView()
 }
 
 
