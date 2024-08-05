@@ -14,7 +14,6 @@ struct Constants {
     
     static let shared = Constants()
     
-    
 }
 
 
@@ -22,6 +21,7 @@ enum URLs {
     case livePreviewUrl
     case futureGamesUrl
     case historyOfGames(String, String)
+    case drawDetails(String)
     
     var urlString: String {
         switch self {
@@ -31,6 +31,8 @@ enum URLs {
             "https://api.opap.gr/draws/v3.0/1100/upcoming/20"
         case .historyOfGames(let dateFrom, let dateTo):
             "https://api.opap.gr/draws/v3.0/1100/draw-date/\(dateFrom)/\(dateTo)"
+        case .drawDetails(let id):
+            "https://api.opap.gr/draws/v3.0/1100/\(id)"
         }
     }
 }

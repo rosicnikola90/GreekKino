@@ -6,49 +6,68 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct UpcomingGamesView: View {
-    @ObservedObject var viewModel = UpcomingGamesViewModel()
-    @State private var selectedGame: UpcomingGameModel? = nil
+    
+    @StateObject var viewModel = UpcomingGamesViewModel()
+    @EnvironmentObject var gameManager: GameManager
+    @Query private var userGames: [UserGameModel]
     
     var body: some View {
-        NavigationStack {
-            if viewModel.futureGames.isEmpty {
+        ZStack {
+            if gameManager.loading {
                 LoadingView()
             } else {
-                VStack {
-                    HStack {
-                        Text("Start Time")
-                        Spacer()
-                        Text("Countdown")
-                    }
-                    .padding(.horizontal, 20)
-                    ScrollView {
-                        LazyVStack(spacing: 0) {
-                            ForEach(viewModel.futureGames) { game in
-                                FutureGameRowView(game: game)
-                                    .onTapGesture {
-                                        selectedGame = game
-                                    }
-                                Divider()
+                NavigationStack {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("Naredna Kola")
+                                .font(.headline)
+                                .padding()
+                            Spacer()
+                        }
+                        HStack {
+                            Text("Start Time")
+                            Spacer()
+                            Text("Countdown")
+                        }
+                        .padding(.horizontal, 20)
+                        ScrollView {
+                            LazyVStack(spacing: 0) {
+                                ForEach(viewModel.futureGames) { game in
+                                    FutureGameRowView(game: game)
+                                        .onTapGesture {
+//                                            let contains = userGames.filter { $0.drawId == game.drawId }
+                                            viewModel.selectedGame = game
+                                        }
+                                    Divider()
+                                }
                             }
+                        }
+                        .refreshable {
+                            viewModel.getFutureGames()
                         }
                     }
                 }
             }
         }
-        .fullScreenCover(item: $selectedGame) { game in
-            GameDetailView(viewModel: GameDetailsViewModel(game: game), isPresented: $selectedGame)
+        .fullScreenCover(item: $viewModel.selectedGame) { game in
+            GameDetailView(viewModel: GameDetailsViewModel(game: game), isPresented: $viewModel.selectedGame)
             
         }
         .onAppear(perform: {
-            viewModel.getFutureGames()
+            if viewModel.futureGames.isEmpty {
+                viewModel.getFutureGames()
+            }
         })
         .onChange(of: viewModel.futureGamesOnChange) { _, newValue in
             withAnimation(.easeInOut) {
                 viewModel.futureGames = newValue
             }
         }
+        .errorAlert(alertMessage: $viewModel.alertMessage)
     }
 }
 
@@ -60,6 +79,7 @@ struct UpcomingGamesView: View {
 
 
 struct FutureGameRowView: View {
+    
     let game: UpcomingGameModel
     
     var body: some View {
@@ -69,9 +89,8 @@ struct FutureGameRowView: View {
             
             Spacer()
             
-                CountdownView(viewModel: CountdownViewModel(drawTime: game.drawTime))
-           
-            .frame(width: 80)
+            CountdownView(viewModel: CountdownViewModel(drawTime: game.drawTime))
+                .frame(width: 80)
             
         }
         .padding()

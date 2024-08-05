@@ -15,7 +15,7 @@ struct LiveView: View {
     @Query(sort: \UserGameModel.game.drawTime, order: .reverse) private var games: [UserGameModel]
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .top) {
                 Button(action: {
                     showModal.toggle()
                 }) {
@@ -25,6 +25,10 @@ struct LiveView: View {
                         .padding()
                 }
                 Spacer()
+                Text("Live")
+                    .font(.headline)
+                    .padding()
+                Spacer()
                 Button(action: {
                     viewModel.reload()
                 }) {
@@ -33,7 +37,6 @@ struct LiveView: View {
                         .foregroundColor(.gray)
                         .padding()
                 }
-                
             }
             ZStack {
                 LiveDrawView(viewModel: viewModel)
@@ -45,7 +48,6 @@ struct LiveView: View {
                     LoadingView()
                 }
             }
-            
             Spacer()
         }
         .sheet(isPresented: $showModal) {
@@ -66,23 +68,6 @@ struct LiveView: View {
             .presentationDetents([.large, .medium, .fraction(0.4)])
             
         }
-    }
-}
-
-struct CustomModalView: View {
-    var body: some View {
-        VStack {
-            Text("This is a modal view")
-                .font(.headline)
-                .padding()
-            Spacer()
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: UIScreen.main.bounds.height / 3)
-        .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 20)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

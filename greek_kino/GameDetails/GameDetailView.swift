@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct GameDetailView: View {
-
+    
     @StateObject var viewModel: GameDetailsViewModel
     @Binding var isPresented: UpcomingGameModel?
     let columns = Array(repeating: GridItem(.flexible()), count: 10)
     @Environment(\.modelContext) private var modelContext
-
+    
     var body: some View {
         VStack(spacing: 8) {
             HStack {
                 Button(action: {
-                    addItem()
+                    viewModel.showAlert = true
                 }) {
                     Image(systemName: "checkmark.circle")
                         .font(.largeTitle)
@@ -30,7 +30,6 @@ struct GameDetailView: View {
                         .foregroundColor(.primary)
                         .padding()
                 }
-                
             }
             Text("Game No.: \(viewModel.game.drawId)")
                 .font(.headline)
@@ -39,7 +38,9 @@ struct GameDetailView: View {
             Spacer()
             HStack {
                 CustomButtonView(text: "Random") {
-                    
+                    withAnimation {
+                        viewModel.selectedNumbers = viewModel.generateUniqueRandomNumbers()
+                    }
                 }
                 Spacer()
                 CustomButtonView(text: "Clear all") {
@@ -49,22 +50,12 @@ struct GameDetailView: View {
             LazyVGrid(columns: columns, spacing: 2) {
                 ForEach(1...80, id: \.self) { number in
                     CustomNumberView(number: number, backgroundColor: Color("ContentBackground"), borderColor: viewModel.selectedNumbers.contains(number) ? Color.green : nil) {
-                        withAnimation(.easeInOut) {
+                        withAnimation(.easeInOut(duration: 0.2)) {
                             viewModel.numberPressed(number: number)
                         }
+                        
                     }
-                    //                    Button(action: {
-                    //                        withAnimation(.easeInOut) {
-                    //                            viewModel.numberPressed(number: number)
-                    //                        }
-                    //                    }) {
-                    //                        Text("\(number)")
-                    //                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    //                            .aspectRatio(1, contentMode: .fit)
-                    //                            .background(viewModel.selectedNumbers.contains(number) ? Color.green : Color.blue)
-                    //                            .foregroundColor(.white)
-                    //                            .cornerRadius(2)
-                    //                    }
+                    .frame(height: 30)
                 }
             }
             .padding()
@@ -85,12 +76,19 @@ struct GameDetailView: View {
                 })
             )
         })
+        .alert("Kreiratti igru sa sledecim brojevima :\(viewModel.selectedNumbers)", isPresented: $viewModel.showAlert) {
+            Button("Odustani", role: .cancel) {}
+            Button("Kreiraj", action: addItem)
+        } message: {
+            Text("")
+        }
     }
     
     private func addItem() {
         withAnimation {
             let newGame = UserGameModel(game: viewModel.game, numbers: viewModel.selectedNumbers)
             modelContext.insert(newGame)
+            isPresented = nil
         }
     }
 }
@@ -129,9 +127,13 @@ struct QuoteHorizontalView: View {
                         }
                     }
                 }
-                .onChange(of: viewModel.selectedNumbers.count) { count in
+                .onChange(of: viewModel.selectedNumbers.count) { _, count in
                     withAnimation {
-                        proxy.scrollTo(count, anchor: .leading)
+                        if count == 0 {
+                            proxy.scrollTo(1, anchor: .leading)
+                        } else {
+                            proxy.scrollTo(count, anchor: .leading)
+                        }
                     }
                 }
             }
@@ -167,6 +169,7 @@ final class GameDetailsViewModel: ObservableObject {
     @Published var selectedNumbers: [Int] = []
     var countdownViewModel: CountdownViewModel
     @Published var maxReached = false
+    @Published var showAlert = false
     let startingQuote = 3.75
     
     init(game: UpcomingGameModel) {
@@ -185,6 +188,16 @@ final class GameDetailsViewModel: ObservableObject {
             }
         }
     }
+    
+    func generateUniqueRandomNumbers() -> [Int] {
+        var numbers: Set<Int> = []
+        while numbers.count < 15 {
+            let randomNumber = Int.random(in: 1...80)
+            numbers.insert(randomNumber)
+        }
+        return Array(numbers).shuffled()
+    }
+
 }
 
 

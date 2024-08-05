@@ -13,6 +13,7 @@ final class UserGameModel {
     let id: String
     let game: UpcomingGameModel
     let numbers: [Int]
+    var result: HistoryGameModel?
     
     init(game: UpcomingGameModel, numbers: [Int]) {
         self.id = UUID().uuidString

@@ -16,7 +16,7 @@ struct MyGamesView: View {
 
     var body: some View {
         ZStack {
-            Color("MozzartYellow")
+            Color(.systemBackground)
                 .ignoresSafeArea()
             VStack {
                 HStack {
@@ -32,7 +32,23 @@ struct MyGamesView: View {
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            
+                            .onAppear(perform: {
+                                if game.result == nil, dateFromUnixMilliseconds(game.game.drawTime) < Date() {
+                                    gameManager.getGame(forDraw: game.game.drawId) { result in
+                                        switch result {
+                                        case .success(let updatedGame):
+                                            game.result = updatedGame
+                                            do {
+                                                try modelContext.save()
+                                            } catch {
+                                                print("Failed to save updated game: \(error)")
+                                            }
+                                        case .failure(let error):
+                                            print("Failed to fetch game result: \(error)")
+                                        }
+                                    }
+                                }
+                            })
                     }
                     .onDelete(perform: deleteGame)
                 }
@@ -52,6 +68,10 @@ struct MyGamesView: View {
             }
         }
     }
+    
+    func dateFromUnixMilliseconds(_ milliseconds: Int) -> Date {
+        return Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
+    }
 }
 
 #Preview {
@@ -61,21 +81,33 @@ struct MyGamesView: View {
 
 
 struct UserGameCellView: View {
-    let game: UserGameModel
+    let game: UserGameModel?
     let columns = Array(repeating: GridItem(.flexible()), count: 5)
+    let historyGame: HistoryGameModel?
+    
+    init(game: UserGameModel) {
+        self.game = game
+        self.historyGame = nil
+    }
+    
+    init(historyGame: HistoryGameModel) {
+        self.game = nil
+        self.historyGame = historyGame
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Kolo: \(game.game.visualDraw)")
+                Text("Kolo: \(game?.game.visualDraw ?? historyGame?.visualDraw ?? 0)")
                 Spacer()
-                Text("Vreme: \(formatUnixTime(game.game.drawTime))")
+                Text("Vreme: \(formatUnixTime((((game?.game.drawTime ?? historyGame?.drawTime) ?? 0))))")
             }
-            Text("Izabrani brojevi:")
+            Text(game == nil ? "Izvuceni Brojevi:" : "Izabrani brojevi:")
             LazyVGrid(columns: columns, spacing: 2) {
-                ForEach(game.numbers, id: \.self) { item in
-                    CustomNumberView(number: item, backgroundColor: Color.blue)
-                        .frame(width: 30, height: 30)
+                ForEach(game?.numbers ?? historyGame?.winningNumbers?.list ?? [], id: \.self) { item in
+                    CustomNumberView(number: item, backgroundColor: getColor())
+                        .frame(width: 40, height: 40)
+                        .disabled(true)
                 }
             }
         }
@@ -83,6 +115,21 @@ struct UserGameCellView: View {
         .padding(.horizontal, 10)
         .background(Color("ContentBackground"))
         .cornerRadius(8)
+    }
+    
+    private func getColor() -> Color {
+        if let list = game?.numbers, let guess = game?.result?.winningNumbers?.list {
+            for num in guess {
+                if list.contains(num) {
+                    return .green
+                } else {
+                    return .blue
+                }
+            }
+        } else {
+            return .blue
+        }
+        return .blue
     }
 
     private func formatUnixTime(_ unixTime: Int) -> String {

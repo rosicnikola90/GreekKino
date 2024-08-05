@@ -11,16 +11,17 @@ final class UpcomingGamesViewModel: ObservableObject {
     
     @Published var futureGames: [UpcomingGameModel] = []
     @Published var futureGamesOnChange: [UpcomingGameModel] = []
-    
-    private let gameManager = GameManager.shared
-    
+    @Published var selectedGame: UpcomingGameModel? = nil
+    @Published var alertMessage: String?
+
+
     func getFutureGames() {
-        gameManager.fetchFutureGamesData {[unowned self] result in
+        GameManager.shared.fetchUpcomingGamesData {[weak self] result in
             switch result {
             case .success(let games):
-                self.futureGamesOnChange = games
+                self?.futureGamesOnChange = games
             case .failure(let failure):
-                print(failure)
+                self?.alertMessage = failure.localizedDescription
             }
         }
     }
