@@ -18,7 +18,7 @@ struct UpcomingGamesView: View {
                 LoadingView()
             } else {
                 ZStack {
-                    Color("ContentBackground")
+                    Color(.contentBackground)
                         .ignoresSafeArea()
                     VStack {
                         HStack {
@@ -46,8 +46,7 @@ struct UpcomingGamesView: View {
                                             .onTapGesture {
                                                 viewModel.selectedGame = game
                                             }
-                                        ColoredDivider()
-                                            .padding(.horizontal, 8)
+                                        ColoredDivider(horizontalPadding: 10)
                                     }
                                 }
                             }
@@ -80,17 +79,14 @@ struct UpcomingGamesView: View {
     UpcomingGamesView()
 }
 
-
-
 struct FutureGameRowView: View {
     let game: UpcomingGameModel
     let countdownViewModel: CountdownViewModel
     
     var body: some View {
         HStack {
-            Text(formatUnixTime(game.drawTime))
+            Text(FormatHelper.formatUnixTimeHHmm(game.drawTime))
                 .font(.headline)
-            
             Spacer()
             HStack {
                 CountdownView(viewModel: countdownViewModel)
@@ -106,13 +102,6 @@ struct FutureGameRowView: View {
         .padding(.vertical, 5)
         .background(Color(.tertiarySystemBackground))
     }
-    
-    private func formatUnixTime(_ unixTime: Int) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(unixTime) / 1000)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: date)
-    }
 }
 
 
@@ -120,11 +109,13 @@ struct ColoredDivider: View {
     var color: Color = Color(.mozzartYellow)
     var height: CGFloat = 1
     var padding: CGFloat = 0
+    var horizontalPadding: CGFloat = 0
     
     var body: some View {
         Rectangle()
             .fill(color)
             .frame(height: height)
             .padding(.vertical, padding)
+            .padding(.horizontal, horizontalPadding)
     }
 }

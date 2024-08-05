@@ -29,7 +29,5 @@ final class UpcomingGamesViewModel: ObservableObject {
                 self?.alertMessage = failure.localizedDescription
             }
         }
-    }
-    
-    
+    }    
 }
