@@ -12,20 +12,21 @@ final class CountdownViewModel: ObservableObject {
     @Published var timeRemaining: String = ""
     @Published var isBelowTwoMinute: Bool = false
     @Published var reachedZero: Bool = false
-    private var timer: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     private var endTime: Date
     
     init(drawTime: Int) {
         self.endTime = Date(timeIntervalSince1970: TimeInterval(drawTime) / 1000)
-        self.startTimer()
-        self.updateTimeRemaining()
+        observeTimer()
+        updateTimeRemaining()
     }
     
-    func startTimer() {
-        self.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private func observeTimer() {
+        TimerManager.shared.$currentDate
             .sink { [weak self] _ in
                 self?.updateTimeRemaining()
             }
+            .store(in: &cancellables)
     }
     
     private func updateTimeRemaining() {
@@ -33,7 +34,6 @@ final class CountdownViewModel: ObservableObject {
         let remaining = endTime.timeIntervalSince(now)
         
         if remaining <= 0 {
-            timer?.cancel()
             timeRemaining = "00:00"
             isBelowTwoMinute = false
             reachedZero = true
@@ -42,10 +42,11 @@ final class CountdownViewModel: ObservableObject {
             let seconds = Int(remaining) % 60
             timeRemaining = String(format: "%02d:%02d", minutes, seconds)
             isBelowTwoMinute = remaining < 120
+            reachedZero = false
         }
     }
     
     deinit {
-        timer?.cancel()
+        cancellables.forEach { $0.cancel() }
     }
 }

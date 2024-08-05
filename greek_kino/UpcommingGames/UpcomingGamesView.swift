@@ -9,17 +9,17 @@ import SwiftUI
 import SwiftData
 
 struct UpcomingGamesView: View {
-    
     @StateObject var viewModel = UpcomingGamesViewModel()
-    @EnvironmentObject var gameManager: GameManager
     @Query private var userGames: [UserGameModel]
     
     var body: some View {
-        ZStack {
-            if gameManager.loading {
+        VStack {
+            if viewModel.futureGames.isEmpty {
                 LoadingView()
             } else {
-                NavigationStack {
+                ZStack {
+                    Color("ContentBackground")
+                        .ignoresSafeArea()
                     VStack {
                         HStack {
                             Spacer()
@@ -29,20 +29,26 @@ struct UpcomingGamesView: View {
                             Spacer()
                         }
                         HStack {
-                            Text("Start Time")
+                            VStack(alignment: .leading) {
+                                Text("Početak")
+                            }
                             Spacer()
-                            Text("Countdown")
+                            VStack(alignment: .trailing) {
+                                Text("Preostalo")
+                            }
                         }
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 30)
                         ScrollView {
                             LazyVStack(spacing: 0) {
                                 ForEach(viewModel.futureGames) { game in
-                                    FutureGameRowView(game: game)
-                                        .onTapGesture {
-//                                            let contains = userGames.filter { $0.drawId == game.drawId }
-                                            viewModel.selectedGame = game
-                                        }
-                                    Divider()
+                                    if let countdownViewModel = viewModel.countdownViewModels[game.drawId] {
+                                        FutureGameRowView(game: game, countdownViewModel: countdownViewModel)
+                                            .onTapGesture {
+                                                viewModel.selectedGame = game
+                                            }
+                                        ColoredDivider()
+                                            .padding(.horizontal, 8)
+                                    }
                                 }
                             }
                         }
@@ -55,13 +61,12 @@ struct UpcomingGamesView: View {
         }
         .fullScreenCover(item: $viewModel.selectedGame) { game in
             GameDetailView(viewModel: GameDetailsViewModel(game: game), isPresented: $viewModel.selectedGame)
-            
         }
-        .onAppear(perform: {
+        .onAppear {
             if viewModel.futureGames.isEmpty {
                 viewModel.getFutureGames()
             }
-        })
+        }
         .onChange(of: viewModel.futureGamesOnChange) { _, newValue in
             withAnimation(.easeInOut) {
                 viewModel.futureGames = newValue
@@ -71,7 +76,6 @@ struct UpcomingGamesView: View {
     }
 }
 
-
 #Preview {
     UpcomingGamesView()
 }
@@ -79,8 +83,8 @@ struct UpcomingGamesView: View {
 
 
 struct FutureGameRowView: View {
-    
     let game: UpcomingGameModel
+    let countdownViewModel: CountdownViewModel
     
     var body: some View {
         HStack {
@@ -88,16 +92,19 @@ struct FutureGameRowView: View {
                 .font(.headline)
             
             Spacer()
-            
-            CountdownView(viewModel: CountdownViewModel(drawTime: game.drawTime))
-                .frame(width: 80)
-            
+            HStack {
+                CountdownView(viewModel: countdownViewModel)
+                    .frame(width: 80)
+                Image(systemName: "chevron.right")
+                    .font(.footnote)
+                    .foregroundColor(.primary)
+                    .frame(width: 10)
+            }
         }
         .padding()
-        .padding(.horizontal, 20)
-        .background(
-            Color("ContentBackground")
-        )
+        .padding(.leading, 20)
+        .padding(.vertical, 5)
+        .background(Color(.tertiarySystemBackground))
     }
     
     private func formatUnixTime(_ unixTime: Int) -> String {
@@ -108,3 +115,16 @@ struct FutureGameRowView: View {
     }
 }
 
+
+struct ColoredDivider: View {
+    var color: Color = Color(.mozzartYellow)
+    var height: CGFloat = 1
+    var padding: CGFloat = 0
+    
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(height: height)
+            .padding(.vertical, padding)
+    }
+}

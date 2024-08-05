@@ -32,23 +32,23 @@ struct MyGamesView: View {
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .onAppear(perform: {
-                                if game.result == nil, dateFromUnixMilliseconds(game.game.drawTime) < Date() {
-                                    gameManager.getGame(forDraw: game.game.drawId) { result in
-                                        switch result {
-                                        case .success(let updatedGame):
-                                            game.result = updatedGame
-                                            do {
-                                                try modelContext.save()
-                                            } catch {
-                                                print("Failed to save updated game: \(error)")
-                                            }
-                                        case .failure(let error):
-                                            print("Failed to fetch game result: \(error)")
-                                        }
-                                    }
-                                }
-                            })
+//                            .onAppear(perform: {
+//                                if game.result == nil, dateFromUnixMilliseconds(game.game.drawTime) < Date() {
+//                                    gameManager.getGame(forDraw: game.game.drawId) { result in
+//                                        switch result {
+//                                        case .success(let updatedGame):
+//                                            game.result = updatedGame
+//                                            do {
+//                                                try modelContext.save()
+//                                            } catch {
+//                                                print("Failed to save updated game: \(error)")
+//                                            }
+//                                        case .failure(let error):
+//                                            print("Failed to fetch game result: \(error)")
+//                                        }
+//                                    }
+//                                }
+//                            })
                     }
                     .onDelete(perform: deleteGame)
                 }
@@ -118,17 +118,17 @@ struct UserGameCellView: View {
     }
     
     private func getColor() -> Color {
-        if let list = game?.numbers, let guess = game?.result?.winningNumbers?.list {
-            for num in guess {
-                if list.contains(num) {
-                    return .green
-                } else {
-                    return .blue
-                }
-            }
-        } else {
-            return .blue
-        }
+//        if let list = game?.numbers, let guess = game?.result?.winningNumbers?.list {
+//            for num in guess {
+//                if list.contains(num) {
+//                    return .green
+//                } else {
+//                    return .blue
+//                }
+//            }
+//        } else {
+//            return .blue
+//        }
         return .blue
     }
 

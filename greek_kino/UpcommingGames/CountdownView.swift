@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountdownView: View {
-    @ObservedObject var viewModel: CountdownViewModel
+    @StateObject var viewModel: CountdownViewModel
     
     @State private var pulsate = false
     

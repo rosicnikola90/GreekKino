@@ -14,27 +14,26 @@ struct ContentView: View {
     var body: some View {
         TabView {
             UpcomingGamesView()
-                .environmentObject(gameManager)
                 .tabItem {
-                    Image(systemName: "1.square.fill")
-                    Text("Upcoming")
+                    Image(systemName: "arrowshape.up")
+                    Text("Naredna")
                 }
             LiveView()
                 .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("Live")
+                    Image(systemName: "play.circle")
+                    Text("Uživo")
                 }
             MyGamesView()
                 .environmentObject(gameManager)
                 .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("My Games")
+                    Image(systemName: "person.circle")
+                    Text("Moje Igre")
                 }
             HistoryView()
                 .environmentObject(gameManager)
                 .tabItem {
-                    Image(systemName: "4.square.fill")
-                    Text("History")
+                    Image(systemName: "list.bullet.rectangle")
+                    Text("Istorija")
                 }
         }
     }

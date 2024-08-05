@@ -33,6 +33,8 @@
 		BC4732CF2C5FBBB50053DEFE /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732CE2C5FBBB50053DEFE /* HistoryView.swift */; };
 		BC4732D12C5FBFC80053DEFE /* HistoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732D02C5FBFC70053DEFE /* HistoryGameModel.swift */; };
 		BC4732D32C5FCA900053DEFE /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732D22C5FCA900053DEFE /* HistoryViewModel.swift */; };
+		BC4732D52C60FFC00053DEFE /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732D42C60FFC00053DEFE /* TimerManager.swift */; };
+		BC4732D82C6117BC0053DEFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4732D72C6117BC0053DEFE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		BC4732CE2C5FBBB50053DEFE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		BC4732D02C5FBFC70053DEFE /* HistoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryGameModel.swift; sourceTree = "<group>"; };
 		BC4732D22C5FCA900053DEFE /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		BC4732D42C60FFC00053DEFE /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		BC4732D72C6117BC0053DEFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,7 @@
 		BC4732622C5D0DBD0053DEFE /* greek_kino */ = {
 			isa = PBXGroup;
 			children = (
+				BC4732D62C6117AD0053DEFE /* Support */,
 				BC4732CD2C5FBB5C0053DEFE /* History */,
 				BC4732AE2C5E93AC0053DEFE /* MyGames */,
 				BC4732A52C5E66C70053DEFE /* LiveDrow */,
@@ -149,6 +154,7 @@
 				BC4732692C5D0DBE0053DEFE /* Preview Content */,
 				BC47329E2C5D85E70053DEFE /* ColorAsset.xcassets */,
 				BC4732A82C5E674A0053DEFE /* Constants.swift */,
+				BC4732D42C60FFC00053DEFE /* TimerManager.swift */,
 			);
 			path = greek_kino;
 			sourceTree = "<group>";
@@ -222,6 +228,14 @@
 				BC4732D22C5FCA900053DEFE /* HistoryViewModel.swift */,
 			);
 			path = History;
+			sourceTree = "<group>";
+		};
+		BC4732D62C6117AD0053DEFE /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BC4732D72C6117BC0053DEFE /* Extensions.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,9 +378,11 @@
 				BC4732AB2C5E6E4C0053DEFE /* LiveView.swift in Sources */,
 				BC4732CF2C5FBBB50053DEFE /* HistoryView.swift in Sources */,
 				BC47328E2C5D100D0053DEFE /* NetworkService.swift in Sources */,
+				BC4732D82C6117BC0053DEFE /* Extensions.swift in Sources */,
 				BC4732D12C5FBFC80053DEFE /* HistoryGameModel.swift in Sources */,
 				BC47329D2C5D7F7E0053DEFE /* CountdownView.swift in Sources */,
 				BC4732B02C5E93C20053DEFE /* MyGamesView.swift in Sources */,
+				BC4732D52C60FFC00053DEFE /* TimerManager.swift in Sources */,
 				BC4732A72C5E66E10053DEFE /* LiveDrawView.swift in Sources */,
 				BC4732982C5D1FCC0053DEFE /* LoadingView.swift in Sources */,
 				BC4732642C5D0DBD0053DEFE /* GreekKinoApp.swift in Sources */,
