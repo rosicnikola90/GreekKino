@@ -14,7 +14,7 @@ struct MyGamesView: View {
     @Query(sort: \UserGameModel.game.drawTime, order: .reverse) private var games: [UserGameModel]
     @Environment(\.modelContext) private var modelContext
     @State var selectedGame: UserGameModel?
-
+    
     var body: some View {
         ZStack {
             Color(.contentBackground)
@@ -37,8 +37,8 @@ struct MyGamesView: View {
                             UserGameCellView(game: game) {
                                 selectedGame = game
                             }
-                                .listRowSeparator(.hidden)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            .listRowSeparator(.hidden)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .onDelete(perform: deleteGame)
                     }

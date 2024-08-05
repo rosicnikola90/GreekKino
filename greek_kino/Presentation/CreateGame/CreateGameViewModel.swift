@@ -1,5 +1,5 @@
 //
-//  GameDetailsViewModel.swift
+//  CreateGameViewModel.swift
 //  greek_kino
 //
 //  Created by Nikola Rosic on 5.8.24..
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class GameDetailsViewModel: ObservableObject {
+final class CreateGameViewModel: ObservableObject {
     
     let game: UpcomingGameModel
     @Published var selectedNumbers: [Int] = []

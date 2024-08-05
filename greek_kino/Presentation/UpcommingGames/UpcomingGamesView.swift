@@ -60,7 +60,7 @@ struct UpcomingGamesView: View {
             }
         }
         .fullScreenCover(item: $viewModel.selectedGame) { game in
-            GameDetailView(viewModel: GameDetailsViewModel(game: game), isPresented: $viewModel.selectedGame)
+            CreateGameView(viewModel: CreateGameViewModel(game: game), isPresented: $viewModel.selectedGame)
         }
         .onAppear {
             viewModel.getFutureGames()

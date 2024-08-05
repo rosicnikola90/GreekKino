@@ -150,8 +150,14 @@ struct UserGameCellView: View {
                     Spacer()
                     Text("Vreme: \(FormatHelper.formatUnixTime((((game?.game.drawTime ?? historyGame?.drawTime) ?? 0))))")
                 }
-                Text("Status: \(FormatHelper.checkUnixTimeStatus((game?.game.drawTime ?? historyGame?.drawTime) ?? 0).title)")
-                
+                HStack {
+                    Text("Status: \(FormatHelper.checkUnixTimeStatus((game?.game.drawTime ?? historyGame?.drawTime) ?? 0).title)")
+                    Spacer()
+                    if game != nil {
+                        Text("Kvota: \(String(format: "%.2f", game?.quote ?? 0))")
+                    }
+                }
+               
                 Text(game == nil ? "Izvuceni Brojevi:" : "Izabrani brojevi:")
                 LazyVGrid(columns: columns, spacing: 2) {
                     ForEach(game?.numbers ?? historyGame?.winningNumbers?.list ?? [], id: \.self) { item in
@@ -174,7 +180,9 @@ struct UserGameCellView: View {
         .background(Color(.tertiarySystemBackground))
         .cornerRadius(8)
         .onTapGesture {
-            action?()
+            if status == .finished, game != nil {
+                action?()
+            }
         }
     }
 }

@@ -1,8 +1,15 @@
+//
+//  CreateGameViewModel.swift
+//  greek_kino
+//
+//  Created by Nikola Rosic on 5.8.24..
+//
+
 import SwiftUI
 
-struct GameDetailView: View {
+struct CreateGameView: View {
     
-    @StateObject var viewModel: GameDetailsViewModel
+    @StateObject var viewModel: CreateGameViewModel
     @Binding var isPresented: UpcomingGameModel?
     let columns = Array(repeating: GridItem(.flexible()), count: 10)
     @Environment(\.modelContext) private var modelContext
@@ -103,7 +110,8 @@ struct GameDetailView: View {
     
     private func addItem() {
         withAnimation {
-            let newGame = UserGameModel(game: viewModel.game, numbers: viewModel.selectedNumbers)
+            let quote = FormatHelper.getQuote(count: viewModel.selectedNumbers.count, starting: viewModel.startingQuote)
+            let newGame = UserGameModel(game: viewModel.game, numbers: viewModel.selectedNumbers, quote: quote)
             modelContext.insert(newGame)
             isPresented = nil
         }
@@ -113,7 +121,7 @@ struct GameDetailView: View {
 
 struct QuoteHorizontalView: View {
     
-    @ObservedObject var viewModel: GameDetailsViewModel
+    @ObservedObject var viewModel: CreateGameViewModel
     
     var body: some View {
         ScrollViewReader { proxy in
@@ -134,7 +142,7 @@ struct QuoteHorizontalView: View {
                                     .padding(.horizontal, 2)
                                     .foregroundColor(viewModel.selectedNumbers.count == count ? .red : .primary)
                                 Divider()
-                                Text("\(String(format: "%.2f", Double(count) * viewModel.startingQuote * pow(1.5, Double(count))))")
+                                Text("\(String(format: "%.2f", FormatHelper.getQuote(count: viewModel.selectedNumbers.count, starting: viewModel.startingQuote)))")
                                     .font(.headline)
                                     .padding(.horizontal, 2)
                                     .foregroundColor(viewModel.selectedNumbers.count == count ? .red : .primary)

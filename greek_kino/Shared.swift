@@ -92,5 +92,9 @@ struct FormatHelper {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: date)
     }
+    
+    static func getQuote(count: Int, starting: Double) -> Double {
+        return Double(count) * starting * pow(1.5, Double(count))
+    }
 }
 

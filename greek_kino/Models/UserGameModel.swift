@@ -13,11 +13,12 @@ final class UserGameModel {
     let id: String
     let game: UpcomingGameModel
     let numbers: [Int]
-//    var result: HistoryGameModel?
+    let quote: Double
     
-    init(game: UpcomingGameModel, numbers: [Int]) {
+    init(game: UpcomingGameModel, numbers: [Int], quote: Double) {
         self.id = UUID().uuidString
         self.game = game
         self.numbers = numbers
+        self.quote = quote
     }
 }

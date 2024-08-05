@@ -67,7 +67,7 @@ final class MyGameDetailsViewModel: ObservableObject {
     let userGame: UserGameModel?
     @Published var alertMessage: String?
     @Published var loading = false
-
+    
     init(game: UserGameModel?) {
         self.userGame = game
         getGame()
@@ -106,7 +106,7 @@ struct ResultCellView: View {
         }
         self.guesses = count
     }
-
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -118,7 +118,11 @@ struct ResultCellView: View {
                             .disabled(true)
                     }
                 }
-                Text("Pogodaka: \(guesses)")
+                HStack {
+                    Text("Pogodaka: \(guesses)")
+                    Spacer()
+                    Text("Kvota: \(String(format: "%.2f", userGame.quote))")
+                }
             }
         }
         .padding(4)
