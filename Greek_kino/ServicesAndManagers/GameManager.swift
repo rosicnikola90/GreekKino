@@ -52,10 +52,8 @@ final class GameManager: GameManagerDelegate, ObservableObject {
     }
     
     func getGame(forDraw drawId: Int, completion: @escaping (Result<HistoryGameModel, Error>) -> Void) {
-        loading = true
         networkService.get(url: URL(string: URLs.drawDetails(String(drawId)).urlString)!) {[weak self] (result: Result<HistoryGameModel, Error>) in
             DispatchQueue.main.async {
-                self?.loading = false
                 switch result {
                 case .success(let model):
                     completion(.success(model))

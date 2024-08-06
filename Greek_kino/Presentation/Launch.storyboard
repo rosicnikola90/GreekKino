@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -38,10 +38,10 @@
     </scenes>
     <resources>
         <namedColor name="ContentBackground">
-            <color red="0.29630964241980429" green="0.24724003285935128" blue="0.40731717139175261" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29600000381469727" green="0.24699999392032623" blue="0.40700000524520874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="MozzartYellow">
-            <color red="0.7580928384350516" green="0.5963302712358397" blue="0.29513116495950226" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.75800001621246338" green="0.59600001573562622" blue="0.29499998688697815" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
